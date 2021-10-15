@@ -5,4 +5,5 @@ Box Custom Skills - Quickstart Project
 
 * Version: 2.0
 
-This project describes how to create your own Box Skill _hello world_ skill.
+This directory contains starter projects to create your own Box Skill _hello world_ skill.
+
