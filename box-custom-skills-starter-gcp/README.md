@@ -9,6 +9,7 @@ This is a sample hello-world nodejs skill designed to work on Goole Cloud Platfo
 1. Install Node v10.0.0 or higher
 2. [Set up Google Cloud Account](https://serverless.com/framework/docs/providers/google/guide/credentials/)
 3. Download the code.
-4. Update connection and configuration information in the serverless.yml and package.json files. 
-5. `npm install`
-6. `sls deploy --project=box-custom-skills-starter-gcp --credentials=~/.gcloud/serverless.json`
+4. Add your google keyfile to the .gcloud folder and name is serverless.json.
+5. Update any connection and configuration information in the serverless.yml and package.json files. 
+6. `npm install`
+7. `sls deploy --project=box-custom-skills-starter-gcp --credentials=~/.gcloud/serverless.json`
