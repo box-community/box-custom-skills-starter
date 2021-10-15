@@ -1,5 +1,5 @@
 {
-    "name": "hello-world-nodejs-gcp",
+    "name": "box-custom-skills-starter-gcp",
     "version": "0.1.0",
     "description": "",
     "main": "index.js",
@@ -10,7 +10,7 @@
     "license": "MIT",
     "dependencies": {
         "box-node-sdk": "^1.31.0",
-        "jimp": "^0.9.3",
+        "jimp": "^0.16.1",
         "serverless": "^1.66.0"
     },
     "devDependencies": {
