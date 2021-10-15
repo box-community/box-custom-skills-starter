@@ -11,4 +11,4 @@ This is a sample hello-world nodejs skill designed to work on Goole Cloud Platfo
 3. Download the code.
 4. Update connection and configuration information in the serverless.yml and package.json files. 
 5. `npm install`
-6. `sls deploy --project=box-custom-skills-starter-gcp --credentials=~/credentials/serverless.json`
+6. `sls deploy --project=box-custom-skills-starter-gcp --credentials=~/.gcloud/serverless.json`

@@ -5,7 +5,7 @@ tmp
 .coveralls.yml
 
 # Google
-keyfile.json
+.gcloud/serverless.json
 
 # Logs
 *.log
@@ -35,6 +35,3 @@ node_modules
 # OS
 .DS_Store
 .tmp
-
-# Custom
-credentials/*.json
