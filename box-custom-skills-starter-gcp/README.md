@@ -12,4 +12,4 @@ This is a sample hello-world nodejs skill designed to work on Goole Cloud Platfo
 4. Add your google keyfile to the .gcloud folder and name is serverless.json.
 5. Update any connection and configuration information in the serverless.yml and package.json files. 
 6. `npm install`
-7. `sls deploy --project=box-custom-skills-starter-gcp --credentials=~/.gcloud/serverless.json`
+7. `sls deploy`

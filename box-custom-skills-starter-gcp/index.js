@@ -2,7 +2,7 @@
 
 const { FilesReader, SkillsWriter } = require('./skills-kit-2.0');
 
-exports.helloWorld = async (request, response) => {
+exports.boxSkill = async (request, response) => {
     const filesReader = new FilesReader(request.body);
     const skillsWriter = new SkillsWriter(filesReader.getFileContext());
 

@@ -1,4 +1,4 @@
-service: box-custom-skills-starter-gcp
+service: <insert service name here>
 
 provider:
     name: google

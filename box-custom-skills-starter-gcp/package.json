@@ -1,5 +1,5 @@
 {
-    "name": "box-custom-skills-starter-gcp",
+    "name": "<insert project name here>",
     "version": "0.1.0",
     "description": "",
     "main": "index.js",
@@ -9,11 +9,11 @@
     "author": "serverless.com",
     "license": "MIT",
     "dependencies": {
-        "box-node-sdk": "^1.31.0",
+        "box-node-sdk": "^2.0.0",
         "jimp": "^0.16.1",
-        "serverless": "^1.66.0"
+        "serverless": "^2.64.1"
     },
     "devDependencies": {
-        "serverless-google-cloudfunctions": "*"
+        "serverless-google-cloudfunctions": "^4.4.0"
     }
 }
