@@ -7,6 +7,9 @@ provider:
     region: us-central1
     project: <insert project id>
     credentials: <insert absolute file path>
+    environment:
+        box_primary_key: "<insert first key>"
+        box_secondary_key: "<insert second key>"
 
 plugins:
     - serverless-google-cloudfunctions
