@@ -1,19 +1,19 @@
 {
-    "name": "<insert project name here>",
+    "name": "<insert-project-name-here-no-spaces>",
     "version": "0.1.0",
-    "description": "",
+    "description": "<insert-description>",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "serverless.com",
-    "license": "MIT",
+    "author": "<insert author name>",
+    "license": "<insert license>",
     "dependencies": {
-        "box-node-sdk": "^2.0.0",
-        "jimp": "^0.16.1",
-        "serverless": "^2.64.1"
+        "box-node-sdk": "^2.7.2",
+        "jimp": "^0.16.2",
+        "serverless": "^3.24.1"
     },
     "devDependencies": {
-        "serverless-google-cloudfunctions": "^4.4.0"
+        "serverless-google-cloudfunctions": "^4.6.0"
     }
 }

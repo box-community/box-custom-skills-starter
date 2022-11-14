@@ -1,4 +1,4 @@
-service: <insert service name here>
+service: <insert-service-name-here-no-space>
 
 provider:
     name: google
