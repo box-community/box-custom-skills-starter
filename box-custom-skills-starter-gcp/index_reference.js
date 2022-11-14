@@ -4,7 +4,6 @@ const { FilesReader, SkillsWriter } = require('./skills-kit-2.0');
 const Box = require("box-node-sdk");
 const axios = require("axios");
 const {DocumentProcessorServiceClient} = require('@google-cloud/documentai').v1;
-const fs = require('fs');
 
 //Environment variables
 const boxPrimaryKey = process.env.box_primary_key;
