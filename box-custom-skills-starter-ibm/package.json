@@ -1,0 +1,16 @@
+{
+    "name": "<insert-project-name-here-no-spaces>",
+    "version": "0.1.0",
+    "description": "<insert-description>",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "<insert author name>",
+    "license": "<insert license>",
+    "dependencies": {
+        "box-node-sdk": "^2.7.2",
+        "jimp": "^0.16.2",
+        "serverless": "^3.24.1"
+    }
+}
