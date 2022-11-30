@@ -17,58 +17,55 @@ const metdataKey = process.env.box_metadata_key;
 
 
 exports.boxSkill = async (request, response) => { 
-    const headers = JSON.stringify(request.headers);
-    console.log('Request Headers: ', headers);
-    const body = JSON.stringify(request.body);
-    console.log('Request Body: ', body);
-    //Other variables
-    //This sets the bedroom counter to zero
-    let bedCounter = 0
-    
-    //Validate Box Signature Keys So Bad People Don't Use Your Endpoint
-    let isValid = Box.validateWebhookMessage(request.body, request.headers, boxPrimaryKey, boxSecondaryKey);
-    //If the caller is Box, Continue
-    if(isValid){
-        //Grabs the file information from the request body
-        const filesReader = new FilesReader(request.body);
-        //Use the skills kit to create a way to add metadata to the file
-        const skillsWriter = new SkillsWriter(filesReader.getFileContext());
         try {
-            //Google Process
-            const textToProcess = await processDocument();
+            //Validate Box Signature Keys So Bad People Don't Use Your Endpoint
+            let isValid = Box.validateWebhookMessage(request.body, request.headers, boxPrimaryKey, boxSecondaryKey);
+            //If the caller is Box, Continue
+            if(isValid){
+                const headers = JSON.stringify(request.headers);
+                console.log('Request Headers: ', headers);
+                const body = JSON.stringify(request.body);
+                console.log('Request Body: ', body);
+                //Other variables
+                //This sets the bedroom counter to zero
+                let bedCounter = 0
+                //Grabs the file information from the request body
+                const filesReader = new FilesReader(request.body);
+                //Use the skills kit to create a way to add metadata to the file
+                const skillsWriter = new SkillsWriter(filesReader.getFileContext());
+                //Google Process
+                const textToProcess = await processDocument();
 
-            //If Google found text, Continue
-            if(textToProcess){
-                //Count and create options for floorplan based on text from Google
-                await processText(textToProcess);
+                //If Google found text, Continue
+                if(textToProcess){
+                    //Count and create options for floorplan based on text from Google
+                    await processText(textToProcess);
 
-                //Metadata Template Writing
-                await skillsWriter.fileWriteClient.files.setMetadata(
-                    skillsWriter.fileId,
-                    skillsWriter.fileWriteClient.metadata.scopes.ENTERPRISE,
-                    metdataKey,
-                    { 
-                        //The key on the left is from the metadata field setup in Box
-                        //The keys are always camel case without spaces
-                        //So a field name of Number of Bedrooms would have a key of numberOfBedrooms
-                        bedrooms: bedCounter, 
-                    }
-                );
-                
-                console.log('Template Attached')
-                response.status(200).send('Template Attached');
+                    //Metadata Template Writing
+                    await skillsWriter.fileWriteClient.files.setMetadata(
+                        skillsWriter.fileId,
+                        skillsWriter.fileWriteClient.metadata.scopes.ENTERPRISE,
+                        metdataKey,
+                        { 
+                            //The key on the left is from the metadata field setup in Box
+                            //The keys are always camel case without spaces
+                            //So a field name of Number of Bedrooms would have a key of numberOfBedrooms
+                            bedrooms: bedCounter, 
+                        }
+                    );
+                    console.log('Template Attached')
+                } else {
+                    console.log('Something went wrong!');
+                }
             } else {
-                response.status(200).send('Something went wrong! See Logs');
+                console.log('Keys Were Not Valid')
             }
-
         } catch (error) {
             console.log("Error: ", JSON.stringify(error))
-            response.status(200).send(JSON.stringify(error));
+        } finally {
+            // Skills engine requires a 200 response within 10 seconds of sending an event.
+            response.status(200).send('Box event was processed by skill');
         }
-    } else {
-        console.log('Keys Were Not Valid')
-        response.status(200).send('Keys Invalid');
-    }
     
     //Send encoded file to document ai to process and return the text
     async function processDocument() {

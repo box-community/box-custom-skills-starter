@@ -27,7 +27,6 @@ package:
     exclude:
         - .gitignore
         - .git/**
-    excludeDevDependencies: false
 
 functions:
   skill:
