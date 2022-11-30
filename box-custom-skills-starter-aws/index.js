@@ -5,8 +5,8 @@ const { FilesReader, SkillsWriter, SkillsErrorEnum } = require('./skills-kit-2.0
 const Box = require('box-node-sdk');
 
 //environment variables
-const boxPrimaryKey = 'RJxQfHB5COiV6Z58bk0MGH80k7MVywJH';
-const boxSecondaryKey = 'dh0czWUpkyCUfkEeU6elBpXQgNdWZm3Z';
+//const boxPrimaryKey = process.env.box_primary_key;
+//const boxSecondaryKey = process.env.box_secondary_key;
 
 module.exports.handler = async (event, context, callback) => {  
     // instantiate your two skill development helper tools
