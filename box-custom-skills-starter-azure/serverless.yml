@@ -5,4 +5,7 @@ provider:
   runtime: nodejs14.x
   timeout: 10 # server should still acknowledge Box skills engine within 10 seconds of receiving the event
   versionFunctions: true # maintains past versions in single deployment
+  environment:
+    box_primary_key: <INSERT PRIMARY KEY HERE>
+    box_secondary_key: <INSERT SECONDARY KEY HERE>
 

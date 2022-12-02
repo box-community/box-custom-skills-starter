@@ -2,8 +2,6 @@
 
 This is a sample hello-world nodejs Box Skill designed to work on Amazon Web Services.
 
-**Note: You will need to add a gcp crendentials file and update the serverless.yml with that appropriate connection information.**
-
 You will need to set up a Box Skill in the Box Developer Console, as well as authorize the skill and configure a folder to watch for uploads. You can find out more about that process in our [developer documentation](https://developer.box.com/guides/applications/custom-skills/setup/). 
 
 ## Steps to Setup and Deploy
