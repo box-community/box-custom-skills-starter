@@ -3,7 +3,7 @@ service: <insert-service-name-here-no-space>
 provider:
     name: google
     stage: dev
-    runtime: nodejs14.x
+    runtime: nodejs14
     region: us-central1
     project: <insert project id>
     credentials: <insert absolute file path>
