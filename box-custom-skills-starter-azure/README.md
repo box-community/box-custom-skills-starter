@@ -6,7 +6,7 @@ You will need to set up a Box Skill in the Box Developer Console, as well as aut
 
 ## Steps to Setup and Deploy
 
-1. Install Node v10.0.0 or higher
+1. Install Node v14.0.0 or higher
 2. Follow directions [here](https://www.serverless.com/framework/docs/providers/azure/guide/credentials) on signing up for an Azure account and configuring serverless to use the appropriate Azure credentials.
 3. Download the code.
 4. Update any connection and configuration information in the serverless.yml and package.json files. 

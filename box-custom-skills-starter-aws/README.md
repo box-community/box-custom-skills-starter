@@ -6,7 +6,7 @@ You will need to set up a Box Skill in the Box Developer Console, as well as aut
 
 ## Steps to Setup and Deploy
 
-1. Install Node v10.0.0 or higher
+1. Install Node v14.0.0 or higher
 2. Follow directions [here](https://www.serverless.com/framework/docs/providers/aws/guide/credentials) on signing up for an AWS account and configuring serverless to use the appropriate AWS credentials.
 3. Download the code.
 4. Update any connection and configuration information in the serverless.yml and package.json files. 
@@ -14,4 +14,4 @@ You will need to set up a Box Skill in the Box Developer Console, as well as aut
 6. `sls deploy`
 7. Once the deploy is complete, copy the invocation URL and paste it into the Box Skill configuration section. Click Save.
 
-Now, if you upload a file to the folder configured for the Box Skill, you should see metadata attached, as well as logs under the logs tab in the function.
+Now, if you upload a file to the folder configured for the Box Skill, you should see a 'Hello world' metadata card attached, as well as logs under the logs tab in the function. There is commented out code in the middle of the index file that can be used if you would rather use Box Skills cards instead of metadata.
