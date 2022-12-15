@@ -5,7 +5,7 @@ const { FilesReader, SkillsWriter, SkillsErrorEnum } = require('./skills-kit-2.0
 const Box = require('box-node-sdk');
 
 module.exports.boxSkill = async function boxSkill(context, req) {
-    //const res = {};
+    const res = {};
     const filesReader = new FilesReader(req.body);
     const skillsWriter = new SkillsWriter(filesReader.getFileContext()); 
     try {
