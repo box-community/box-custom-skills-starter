@@ -11,6 +11,7 @@
     "dependencies": {
         "box-node-sdk": "^2.7.2",
         "jimp": "^0.16.2",
-        "serverless": "^3.24.1"
+        "serverless": "^3.24.1",
+        "serverless-azure-functions": "^2.1.3"
     }
 }

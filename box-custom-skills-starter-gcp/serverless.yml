@@ -10,6 +10,7 @@ provider:
     environment:
         box_primary_key: "<insert first key>"
         box_secondary_key: "<insert second key>"
+        box_api_endpoint: "https://api.box.com/2.0"
 
 plugins:
     - serverless-google-cloudfunctions

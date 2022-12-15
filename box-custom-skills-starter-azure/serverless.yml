@@ -2,10 +2,29 @@ service: <insert-service-name-here-no-space>
 
 provider:
   name: azure
-  runtime: nodejs14.x
-  timeout: 10 # server should still acknowledge Box skills engine within 10 seconds of receiving the event
-  versionFunctions: true # maintains past versions in single deployment
+  region: West US 2
+  runtime: nodejs14
+  subscriptionId: 00000000-0000-0000-0000-000000000000
+  stage: ${opt:stage, 'dev'} 
   environment:
-    box_primary_key: <INSERT PRIMARY KEY HERE>
-    box_secondary_key: <INSERT SECONDARY KEY HERE>
+    box_primary_key: "<INSERT PRIMARY KEY HERE>"
+    box_secondary_key: "<INSERT SECONDARY KEY HERE>"
+    box_api_endpoint: "https://api.box.com/2.0"
+
+plugins:
+  - serverless-azure-functions
+
+package:
+  patterns:
+    - '!.gitignore'
+    - '!.git/**'
+    - '!package-lock.json'
+
+functions:
+  boxSkill:
+     handler: handler.boxSkill
+     events:
+       - http: true
+         x-azure-settings:
+           authLevel: anonymous
 
