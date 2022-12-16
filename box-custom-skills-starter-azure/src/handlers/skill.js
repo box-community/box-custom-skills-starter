@@ -1,11 +1,10 @@
 'use strict';
 
 // Import FilesReader and SkillsWriter classes from skills-kit-2.0.js library
-const { FilesReader, SkillsWriter, SkillsErrorEnum } = require('./skills-kit-2.0');
+const { FilesReader, SkillsWriter, SkillsErrorEnum } = require('../../skills-kit-2.0');
 const Box = require('box-node-sdk');
 
-module.exports.boxSkill = async function boxSkill(context, req) {
-    const res = {};
+module.exports.boxSkill = async function (context, req) {
     const filesReader = new FilesReader(req.body);
     const skillsWriter = new SkillsWriter(filesReader.getFileContext()); 
     try {
@@ -53,7 +52,7 @@ module.exports.boxSkill = async function boxSkill(context, req) {
             // Save the cards to Box in a single calls to show in UI.
             // Incase the skill is invoked on a new version upload of the same file,
             // this call will override any existing skills cards, data or error, on Box file preview.
-            // context.log(`cards ${JSON.stringify(cards)}`);
+            //context.log(`cards ${JSON.stringify(cards)}`);
             //await skillsWriter.saveDataCards(cards);
 
             //Example custom metadata template added to file
@@ -67,13 +66,15 @@ module.exports.boxSkill = async function boxSkill(context, req) {
             context.log("Skill process completed.")
             // Skills engine requires a 200 response within 10 seconds of sending an event.
             context.res = {
-                status: 200
+                status: 200,
+                body: 'Skill Completed'
             };
             context.done();
         } else {
             context.log('Keys Were Not Valid')
             context.res = {
-                status: 401
+                status: 401,
+                body: 'Unauthorized'
             };
             context.done();
         }
@@ -83,9 +84,10 @@ module.exports.boxSkill = async function boxSkill(context, req) {
             `Skill processing failed for file: ${filesReader.getFileContext().fileId} with error: ${error.message}`
         );
         context.res = {
-            status: 400
+            status: 400,
+            body: 'Something went wrong. Exponential Backoff Retry Process Should Begin.'
         };
         context.done();
     }
 
-  };
+};

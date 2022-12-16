@@ -1,10 +1,12 @@
 service: <insert-service-name-here-no-space>
 
+frameworkVersion: '3'
+
 provider:
   name: azure
   region: West US 2
   runtime: nodejs14
-  subscriptionId: 00000000-0000-0000-0000-000000000000
+  subscriptionId: <INSERT SUB ID HERE>
   stage: ${opt:stage, 'dev'} 
   environment:
     box_primary_key: "<INSERT PRIMARY KEY HERE>"
@@ -18,13 +20,16 @@ package:
   patterns:
     - '!.gitignore'
     - '!.git/**'
-    - '!package-lock.json'
+    - '!local.settings.json'
+    - '!.vscode/**'
 
 functions:
-  boxSkill:
-     handler: handler.boxSkill
-     events:
-       - http: true
-         x-azure-settings:
-           authLevel: anonymous
+  skill:
+    handler: src/handlers/skill.boxSkill
+    events:
+      - http: true
+        methods:
+          - GET
+          - POST
+        authLevel: anonymous # can also be `function` or `admin`
 
