@@ -128,7 +128,7 @@ const SkillsErrorEnum = {
  */
 
 function FilesReader(body) {
-    const eventBody = typeof body === 'object' ? body : JSON.parse(body);
+    //const eventBody = typeof body === 'object' ? body : JSON.parse(body);
     this.requestId = eventBody.id;
     this.skillId = eventBody.skill.id.toString();
     this.fileId = eventBody.source.id;
