@@ -1,3 +1,8 @@
+<img src="images/box-dev-logo-clip.png" 
+alt= “box-dev-logo” 
+style="margin-left:-10px;"
+width=40%;>
+
 [![Project Status](https://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 
 Box Custom Skills - Quickstart Project
